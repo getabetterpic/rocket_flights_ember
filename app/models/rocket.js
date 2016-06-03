@@ -11,5 +11,5 @@ export default Model.extend({
   centerOfGravity: attr('number'),
   dragCoefficient: attr('number'),
   stages: attr('number'),
-  flights: hasMany('flight', { async: true })
+  flights: hasMany('flight')
 });

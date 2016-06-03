@@ -1,5 +1,9 @@
 <ul class="collection">
   {{#each model as |rocket|}}
-    <li class="collection-item">{{rocket.name}}</li>
+    <li class="collection-item">
+      <div>{{rocket.name}}
+        <div class="secondary-content">{{rocket.flights.length}}</div>
+      </div>
+    </li>
   {{/each}}
 </ul>
