@@ -11,6 +11,12 @@ module.exports = function(defaults) {
 
   app.import('bower_components/Materialize/dist/js/materialize.js');
 
+  const destDir = 'fonts/roboto';
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.woff2', { destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.woff', { destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.ttf', { destDir });
+
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
