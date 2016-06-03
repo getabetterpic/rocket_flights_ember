@@ -1,1 +1,5 @@
-{{outlet}}
+<ul class="collection">
+  {{#each model as |flight|}}
+    <li class="collection-item">{{flight.rocket.name}}</li>
+  {{/each}}
+</ul>
