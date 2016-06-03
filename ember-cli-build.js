@@ -9,8 +9,7 @@ module.exports = function(defaults) {
     }
   });
 
-  app.import('bower_components/Materialize/js/global.js');
-  app.import('bower_components/Materialize/js/forms.js');
+  app.import('bower_components/Materialize/dist/js/materialize.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
