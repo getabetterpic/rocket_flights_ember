@@ -1,0 +1,9 @@
+<ul class="collection">
+  {{#each model as |rocket|}}
+    {{#link-to 'rockets.show' rocket class="collection-item" tagName="li"}}
+      <a>{{rocket.name}}
+        <div class="secondary-content">{{rocket.flights.length}}</div>
+      </a>
+    {{/link-to}}
+  {{/each}}
+</ul>
