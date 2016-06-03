@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('motors');
   this.route('rockets', function() {
     this.route('show', { path: '/:rocket_id' });
+    this.route('new');
   });
 });
 
