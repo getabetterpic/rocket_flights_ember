@@ -1,0 +1,6 @@
+<ul class="collection">
+  {{#each model as |flight|}}
+    {{#link-to 'flights.show' flight class="collection-item" tagName="li"}}{{flight.rocket.name}}{{/link-to}}
+  {{/each}}
+  {{#link-to 'flights.new' class="collection-item" tagName="li"}}<a>New Flight</a>{{/link-to}}
+</ul>
