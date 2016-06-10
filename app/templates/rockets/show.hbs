@@ -6,7 +6,7 @@
       <a>{{format-date flight.flightDate 'LL'}}</a>
     {{/link-to}}
   {{/each}}
-  {{#link-to 'flights.new' (query-params rocket=model.id) class="collection-item" tagName="li"}}
+  {{#link-to 'flights.new' (query-params rocket_id=model.id) class="collection-item" tagName="li"}}
     <a>New Flight</a>
   {{/link-to}}
 </ul>
