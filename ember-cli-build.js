@@ -10,6 +10,7 @@ module.exports = function(defaults) {
   });
 
   app.import('bower_components/Materialize/dist/js/materialize.js');
+  app.import('bower_components/moment/moment.js');
 
   const destDir = 'fonts/roboto';
   app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.woff2', { destDir: destDir });
