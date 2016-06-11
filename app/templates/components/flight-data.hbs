@@ -20,14 +20,16 @@
     </div>
     <div class="input-field col s12 m4">
       {{input value=model.rocket.name}}
+      <label class="active">Rocket</label>
     </div>
     <div class="input-field col s12 m4">
-      {{format-date value=model.flightDate format="LL" class="date-picker"}}
+      {{date-picker date=model.flightDate}}
+      <label class="active">Date</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      {{textarea value=model.notes class="materialize-textarea"}}
+      {{textarea value=model.notes class="materialize-textarea active"}}
       <label>Notes</label>
     </div>
   </div>
