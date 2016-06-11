@@ -1,7 +1,39 @@
 <form>
   <div class="row">
-    <div class="col s12 m6">
-      {{model.rocket.name}}
+    <div class="input-field col s12 m4">
+      <p>
+        {{radio-button
+          class="with-gap"
+          value=true
+          groupValue=model.successful
+          id="successful-yes"}}
+        <label for="successful-yes">Yes</label>
+      </p>
+      <p>
+        {{radio-button
+          class="with-gap"
+          value=false
+          groupValue=model.successful
+          id="successful-no"}}
+        <label for="successful-no">No</label>
+      </p>
+    </div>
+    <div class="input-field col s12 m4">
+      {{input value=model.rocket.name}}
+    </div>
+    <div class="input-field col s12 m4">
+      {{format-date value=model.flightDate format="LL" class="date-picker"}}
     </div>
   </div>
+  <div class="row">
+    <div class="input-field col s12">
+      {{textarea value=model.notes class="materialize-textarea"}}
+      <label>Notes</label>
+    </div>
+  </div>
+  {{#if model.hasDirtyAttributes}}
+    <div class="row">
+      <button type="button" name="button" class="btn" {{action (route-action 'saveFlight' model)}}>Save</button>
+    </div>
+  {{/if}}
 </form>
