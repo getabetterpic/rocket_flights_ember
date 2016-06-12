@@ -1,0 +1,8 @@
+<select onchange={{action 'rocketDidChange' value='target.value'}} class="browser-default">
+  {{#each rockets as |rocket|}}
+    <option value={{rocket.id}}
+            selected={{eq rocket.id selectedRocket.id}}>
+      {{rocket.name}}
+    </option>
+  {{/each}}
+</select>
