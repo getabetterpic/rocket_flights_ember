@@ -1,0 +1,19 @@
+<form>
+  <div class="row">
+    <div class="input-field col s12 m4">
+      {{input value=model.manufacturer id="manufacturer"}}
+      <label for="manufacturer">Manufacturer</label>
+    </div>
+    <div class="input-field col s12 m4">
+      {{input value=model.name id="name"}}
+      <label for="name">Name</label>
+    </div>
+    <div class="input-field col s12 m4">
+      {{input value=model.diameterInMm id="diameter" type="number"}}
+      <label for="diameter">Diameter in MM</label>
+    </div>
+  </div>
+  <div class="row">
+    <button type="button" name="button" class="btn" {{action (route-action 'saveMotor' model)}}>Save</button>
+  </div>
+</form>
