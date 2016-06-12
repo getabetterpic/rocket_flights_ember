@@ -1,0 +1,10 @@
+<ul class="collection">
+  {{#each model as |motor|}}
+    {{#link-to 'motors.show' motor class="collection-item" tagName="li"}}
+      <a>{{motor.name}}</a>
+    {{/link-to}}
+  {{/each}}
+  {{#link-to 'motors.new' class="collection-item" tagName="li"}}
+    <a>New Motor</a>
+  {{/link-to}}
+</ul>
