@@ -1,4 +1,4 @@
-<select onchange={{action 'rocketDidChange' value='target.value'}} class="browser-default">
+<select onchange={{action 'rocketDidChange' value='target.value'}}>
   {{#each rockets as |rocket|}}
     <option value={{rocket.id}}
             selected={{eq rocket.id selectedRocket.id}}>
