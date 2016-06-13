@@ -28,8 +28,8 @@ export default Ember.Route.extend({
   },
   actions: {
     saveFlight(model) {
-      model.save().then(() => {
-        Materialize.toast("Flight saved", 1500);
+      model.save().then((model) => {
+        this.transitionTo('flights.show', model);
       }).catch((error) => {
         Materialize.toast("There was a problem saving flight", 1500);
         Materialize.toast(error, 1500);

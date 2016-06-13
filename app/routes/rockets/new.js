@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   actions: {
     saveRocket(model) {
       model.save().then((model) => {
-        this.transitionTo(model);
+        this.transitionTo('rockets.show', model);
       }).catch((errors) => {
         errors.errors.forEach((error) => {
           Materialize.toast(error.details.capitalize(), 3000);
