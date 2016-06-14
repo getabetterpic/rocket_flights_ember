@@ -36,6 +36,19 @@
     </div>
   </div>
   <div class="row">
+    <ul class="collection">
+      {{#if model.flightMotors}}
+        {{#each model.flightMotors as |flightMotor|}}
+          <li class="collection-item">
+            {{flightMotor.motor.manufacturer}} {{flightMotor.motor.name}}
+          </li>
+        {{/each}}
+      {{/if}}
+      <li class="collection-item">Add Motor</li>
+    </ul>
+  </div>
+  <div class="row">
     <button type="button" name="button" class="btn" {{action (route-action 'saveFlight' model)}}>Save</button>
+    <button type="button" name="button" class="btn btn-flat" {{action (route-action 'cancelFlight')}}>Cancel</button>
   </div>
 </form>

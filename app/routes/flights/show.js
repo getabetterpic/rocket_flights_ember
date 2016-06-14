@@ -21,6 +21,9 @@ export default Ember.Route.extend({
         Materialize.toast("There was a problem saving flight", 1500);
         Materialize.toast(error, 1500);
       });
+    },
+    cancelFlight() {
+      this.transitionTo('flights.index');
     }
   }
 });
