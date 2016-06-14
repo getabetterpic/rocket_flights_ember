@@ -21,6 +21,9 @@ export default Ember.Route.extend({
         this.controller.get('model').destroyRecord();
       }
       return true;
+    },
+    cancelMotor() {
+      this.transitionTo('motors.index');
     }
   }
 });

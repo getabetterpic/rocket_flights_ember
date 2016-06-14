@@ -10,6 +10,9 @@ export default Ember.Route.extend({
           Materialize.toast(error.detail.capitalize(), 3000);
         });
       });
+    },
+    cancelMotor() {
+      this.transitionTo('motors.index');
     }
   }
 });
