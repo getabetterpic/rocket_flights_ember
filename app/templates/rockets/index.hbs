@@ -6,5 +6,9 @@
       </a>
     {{/link-to}}
   {{/each}}
-  {{#link-to 'rockets.new' class="collection-item" tagName="li"}}<a>New Rocket</a>{{/link-to}}
 </ul>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  {{#link-to 'rockets.new' class="btn-floating btn-large red"}}
+    <i class="large material-icons">add</i>
+  {{/link-to}}
+</div>
