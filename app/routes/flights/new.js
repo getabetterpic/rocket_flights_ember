@@ -40,6 +40,9 @@ export default Ember.Route.extend({
         this.controller.get('model').destroyRecord();
       }
       return true;
+    },
+    cancelFlight() {
+      this.transitionTo('flights.index');
     }
   }
 });
