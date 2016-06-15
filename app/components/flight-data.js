@@ -9,6 +9,9 @@ export default Ember.Component.extend({
   actions: {
     openMotorModal() {
       this.attrs.openMotorModal();
+    },
+    removeMotor(flightMotor) {
+      this.attrs.removeMotor(flightMotor);
     }
   }
 });

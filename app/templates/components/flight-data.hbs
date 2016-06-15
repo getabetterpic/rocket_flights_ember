@@ -42,6 +42,7 @@
         {{#each model.flightMotors as |flightMotor|}}
           <li class="collection-item">
             {{flightMotor.motor.manufacturer}} {{flightMotor.motor.name}}
+            <div class="secondary-content" {{action 'removeMotor' flightMotor}}><a>Remove</a></div>
           </li>
         {{/each}}
       {{/if}}

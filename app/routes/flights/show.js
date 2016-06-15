@@ -28,12 +28,17 @@ export default Ember.Route.extend({
     },
     saveMotor() {
       let flightMotor = this.controller.get('newFlightMotor');
-      Ember.debug(flightMotor.get('motor.isEmpty'));
       if (flightMotor.get('motor.isEmpty') === undefined) {
         flightMotor.destroyRecord();
       } else {
-        flightMotor.save();
-        this.controller.set('newFlightMotor', undefined);
+        flightMotor.save().then((motor) => {
+          Materialize.toast('Motor attached to flight', 1500);
+          this.controller.set('newFlightMotor', undefined);
+        }).catch((errors) => {
+          errors.errors.forEach((error) => {
+            Materialize.toast(error.details.capitalize(), 3000);
+          });
+        });
       }
     },
     openMotorModal() {
@@ -47,6 +52,16 @@ export default Ember.Route.extend({
     cancelMotor() {
       let flightMotor = this.controller.get('newFlightMotor');
       flightMotor.destroyRecord();
+    },
+    removeMotor(flightMotor) {
+      console.log(flightMotor);
+      flightMotor.destroyRecord().then(() => {
+        Materialize.toast('Motor removed', 1500);
+      }).catch((errors) => {
+        errors.errors.forEach((error) => {
+          Materialize.toast(error.details, 3000);
+        });
+      });
     }
   }
 });
