@@ -8,10 +8,10 @@ export default Ember.Component.extend({
 
   actions: {
     openMotorModal() {
-      this.attrs.openMotorModal();
+      this.openMotorModal();
     },
     removeMotor(flightMotor) {
-      this.attrs.removeMotor(flightMotor);
+      this.removeMotor(flightMotor);
     }
   }
 });
