@@ -45,7 +45,7 @@
           </li>
         {{/each}}
       {{/if}}
-      <li class="collection-item">Add Motor</li>
+      <li class="collection-item" {{action 'openMotorModal'}}><a>Add Motor</a></li>
     </ul>
   </div>
   <div class="row">
@@ -53,3 +53,8 @@
     <button type="button" name="button" class="btn btn-flat" {{action (route-action 'cancelFlight')}}>Cancel</button>
   </div>
 </form>
+{{motor-modal
+  saveMotor=(route-action 'saveMotor')
+  newFlightMotor=attrs.newFlightMotor
+  motors=attrs.motors
+  cancelMotor=(route-action 'cancelMotor')}}

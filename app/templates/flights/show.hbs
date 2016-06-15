@@ -1,1 +1,7 @@
-{{flight-data model=model rockets=rockets selectedRocket=model.rocket}}
+{{flight-data
+  model=model
+  rockets=rockets
+  selectedRocket=model.rocket
+  openMotorModal=(route-action 'openMotorModal')
+  newFlightMotor=newFlightMotor
+  motors=motors}}

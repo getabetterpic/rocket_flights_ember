@@ -24,6 +24,27 @@ export default Ember.Route.extend({
     },
     cancelFlight() {
       this.transitionTo('flights.index');
+    },
+    saveMotor() {
+      let flightMotor = this.controller.get('newFlightMotor');
+      if (flightMotor.get('motor').toJSON === undefined) {
+        flightMotor.destroyRecord();
+      } else {
+        flightMotor.save();
+        this.controller.set('newFlightMotor', null);
+      }
+    },
+    openMotorModal() {
+      let flightMotor = this.store.createRecord('flightMotor', {
+        flight: this.controller.get('model')
+      });
+      this.controller.set('newFlightMotor', flightMotor);
+      this.controller.set('motors', this.store.findAll('motor'));
+      Ember.$('#motor-modal').openModal();
+    },
+    cancelMotor() {
+      let flightMotor = this.controller.get('newFlightMotor');
+      flightMotor.destroyRecord();
     }
   }
 });

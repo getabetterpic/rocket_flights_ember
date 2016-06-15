@@ -4,5 +4,11 @@ export default Ember.Component.extend({
   didInsertElement() {
     Materialize.updateTextFields();
     Ember.$('select').material_select();
+  },
+
+  actions: {
+    openMotorModal() {
+      this.attrs.openMotorModal();
+    }
   }
 });
