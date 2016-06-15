@@ -7,7 +7,8 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     controller.setProperties({
       rockets: this.store.findAll('rocket'),
-      model: model
+      model: model,
+      motors: this.store.findAll('motor')
     });
     if (model.get('rocket')) {
       controller.set('selectedRocket', model.get('rocket'));
@@ -27,11 +28,12 @@ export default Ember.Route.extend({
     },
     saveMotor() {
       let flightMotor = this.controller.get('newFlightMotor');
-      if (flightMotor.get('motor').toJSON === undefined) {
+      Ember.debug(flightMotor.get('motor.isEmpty'));
+      if (flightMotor.get('motor.isEmpty') === undefined) {
         flightMotor.destroyRecord();
       } else {
         flightMotor.save();
-        this.controller.set('newFlightMotor', null);
+        this.controller.set('newFlightMotor', undefined);
       }
     },
     openMotorModal() {

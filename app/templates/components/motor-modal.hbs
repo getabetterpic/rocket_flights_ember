@@ -1,5 +1,9 @@
-<div id="motor-modal" class="modal">
+<div id="motor-modal" class="modal modal-fixed-footer">
   <div class="modal-content">
+    {{motor-select
+      motors=motors
+      selectedMotor=selectedMotor
+      onchange=(action (mut selectedMotor))}}
   </div>
   <div class="modal-footer">
     <a class="modal-action modal-close btn-flat" onclick={{action 'saveMotor'}}>Save</a>

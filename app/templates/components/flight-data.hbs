@@ -55,6 +55,7 @@
 </form>
 {{motor-modal
   saveMotor=(route-action 'saveMotor')
-  newFlightMotor=attrs.newFlightMotor
-  motors=attrs.motors
+  newFlightMotor=newFlightMotor
+  motors=motors
+  selectedMotor=selectedMotor
   cancelMotor=(route-action 'cancelMotor')}}
