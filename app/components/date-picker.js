@@ -7,7 +7,6 @@ export default Ember.Component.extend({
   classNames: ['datepicker'],
   attributeBindings: ['type', 'data-value'],
   "data-value": computed('date', function() {
-    console.log(this.get('date'));
     return moment(this.get('date')).format("D MMMM, YYYY");
   }).readOnly(),
   didInsertElement() {
