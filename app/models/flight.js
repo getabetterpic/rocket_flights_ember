@@ -6,6 +6,7 @@ export default Model.extend({
   successful: attr('boolean'),
   notes: attr('string'),
   flightDate: attr('date'),
+  altitude: attr('number'),
   rocket: belongsTo('rocket'),
   flightMotors: hasMany('flightMotor')
 });

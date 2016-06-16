@@ -1,6 +1,6 @@
 <form>
   <div class="row">
-    <div class="input-field col s12 m4">
+    <div class="input-field col s12 m2">
       <label class="active">Successful</label>
       <p>
         {{radio-button
@@ -28,6 +28,10 @@
     <div class="input-field col s12 m4">
       {{date-picker date=model.flightDate updateDate=(route-action 'updateDate')}}
       <label class="active">Date</label>
+    </div>
+    <div class="input-field col s12 m2">
+      {{input value=model.altitude id="altitude" type="number"}}
+      <label for="altitude">Altitude</label>
     </div>
   </div>
   <div class="row">
