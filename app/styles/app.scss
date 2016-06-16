@@ -1,3 +1,9 @@
+@import 'components/color';
+
+$primary-color: color('blue-grey', 'base');
+$secondary-color: color('deep-orange', 'lighten-1');
+
+@import 'components/variables';
 @import 'materialize';
 
 a {

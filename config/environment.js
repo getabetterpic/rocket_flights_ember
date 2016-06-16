@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'rocket-flights-ember',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -41,7 +41,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.HOST = 'http://rocket-flights-api.getabetterpic.com';
   }
 
   return ENV;

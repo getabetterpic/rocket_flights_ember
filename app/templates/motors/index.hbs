@@ -1,0 +1,12 @@
+<ul class="collection">
+  {{#each model as |motor|}}
+    {{#link-to 'motors.show' motor class="collection-item" tagName="li"}}
+      <a>{{motor.manufacturer}} {{motor.name}}</a>
+    {{/link-to}}
+  {{/each}}
+</ul>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  {{#link-to 'motors.new' class="btn-floating btn-large red"}}
+    <i class="large material-icons">add</i>
+  {{/link-to}}
+</div>

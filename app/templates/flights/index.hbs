@@ -1,0 +1,13 @@
+<ul class="collection">
+  {{#each model as |flight|}}
+    {{#link-to 'flights.show' flight class="collection-item" tagName="li"}}
+      <a>{{flight.rocket.name}}</a>
+      <div class="secondary-content">{{format-date flight.flightDate format="LL"}}</div>
+    {{/link-to}}
+  {{/each}}
+</ul>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  {{#link-to 'flights.new' class="btn-floating btn-large red"}}
+    <i class="large material-icons">add</i>
+  {{/link-to}}
+</div>

@@ -1,0 +1,9 @@
+<select onchange={{action 'motorDidChange' value='target.value'}}>
+  <option value="" selected disabled>Select a motor</option>
+  {{#each motors as |motor|}}
+    <option value={{motor.id}}
+            selected={{eq motor.id selectedMotor.id}}>
+      {{motor.manufacturer}} {{motor.name}}
+    </option>
+  {{/each}}
+</select>

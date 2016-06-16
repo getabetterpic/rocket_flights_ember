@@ -1,0 +1,66 @@
+<form>
+  <div class="row">
+    <div class="input-field col s12 m2">
+      <label class="active">Successful</label>
+      <p>
+        {{radio-button
+          class="with-gap"
+          value=true
+          groupValue=model.successful
+          id="successful-yes"}}
+        <label for="successful-yes">Yes</label>
+      </p>
+      <p>
+        {{radio-button
+          class="with-gap"
+          value=false
+          groupValue=model.successful
+          id="successful-no"}}
+        <label for="successful-no">No</label>
+      </p>
+    </div>
+    <div class="input-field col s12 m4">
+      {{rocket-select rockets=rockets
+                      selectedRocket=selectedRocket
+                      onchange=(action (mut selectedRocket))}}
+      <label class="active">Rocket</label>
+    </div>
+    <div class="input-field col s12 m4">
+      {{date-picker date=model.flightDate updateDate=(route-action 'updateDate')}}
+      <label class="active">Date</label>
+    </div>
+    <div class="input-field col s12 m2">
+      {{input value=model.altitude id="altitude" type="number"}}
+      <label for="altitude">Altitude</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      {{textarea value=model.notes class="materialize-textarea active"}}
+      <label>Notes</label>
+    </div>
+  </div>
+  <div class="row">
+    <ul class="collection">
+      {{#if model.flightMotors}}
+        {{#each model.flightMotors as |flightMotor|}}
+          <li class="collection-item">
+            {{flightMotor.motor.manufacturer}} {{flightMotor.motor.name}}
+            <div class="secondary-content" {{action 'removeMotor' flightMotor}}><a>Remove</a></div>
+          </li>
+        {{/each}}
+      {{/if}}
+      <li class="collection-item" {{action 'openMotorModal'}}><a>Add Motor</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <button type="button" name="button" class="btn" {{action (route-action 'saveFlight' model)}}>Save</button>
+    <button type="button" name="button" class="btn btn-flat" {{action (route-action 'cancelFlight')}}>Cancel</button>
+  </div>
+</form>
+{{motor-modal
+  saveMotor=(route-action 'saveMotor')
+  newFlightMotor=newFlightMotor
+  motors=motors
+  selectedMotor=selectedMotor
+  cancelMotor=(route-action 'cancelMotor')}}

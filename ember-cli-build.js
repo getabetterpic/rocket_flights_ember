@@ -10,11 +10,24 @@ module.exports = function(defaults) {
   });
 
   app.import('bower_components/Materialize/dist/js/materialize.js');
+  app.import('bower_components/moment/moment.js');
 
   const destDir = 'fonts/roboto';
-  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.woff2', { destDir });
-  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.woff', { destDir });
-  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.ttf', { destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.woff2', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.woff', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Regular.ttf', { destDir: destDir });
+
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Medium.woff2', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Medium.woff', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Medium.ttf', { destDir: destDir });
+
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Light.woff2', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Light.woff', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Light.ttf', { destDir: destDir });
+
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Thin.woff2', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Thin.woff', { destDir: destDir });
+  app.import('bower_components/Materialize/fonts/roboto/Roboto-Thin.ttf', { destDir: destDir });
 
 
   // Use `app.import` to add additional libraries to the generated

@@ -6,10 +6,16 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('flights');
-  this.route('motors');
+  this.route('motors', function() {
+    this.route('show', { path: '/:motor_id' });
+    this.route('new');
+  });
   this.route('rockets', function() {
     this.route('show', { path: '/:rocket_id' });
+    this.route('new');
+  });
+  this.route('flights', function() {
+    this.route('show', { path: '/:flight_id' });
     this.route('new');
   });
 });

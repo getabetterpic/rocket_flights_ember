@@ -9,6 +9,9 @@ export default Ember.Route.extend({
       model.save().then(() => {
         Materialize.toast("Rocket saved", 1500);
       });
+    },
+    cancelRocket() {
+      this.transitionTo('rockets.index');
     }
   }
 });
