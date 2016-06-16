@@ -52,6 +52,10 @@ export default Ember.Mixin.create({
           Materialize.toast(error.details, 3000);
         });
       });
+    },
+    updateDate(epoch) {
+      let dt = new Date(epoch);
+      this.controller.get('model').set('flightDate', dt);
     }
   }
 });

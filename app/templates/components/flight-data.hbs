@@ -26,7 +26,7 @@
       <label class="active">Rocket</label>
     </div>
     <div class="input-field col s12 m4">
-      {{date-picker date=model.flightDate}}
+      {{date-picker date=model.flightDate updateDate=(route-action 'updateDate')}}
       <label class="active">Date</label>
     </div>
   </div>
