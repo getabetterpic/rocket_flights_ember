@@ -3,7 +3,7 @@ import FlightRoutes from '../../mixins/flight-routes';
 
 export default Ember.Route.extend(FlightRoutes, {
   model(params) {
-    return this.store.find('flight', params.flight_id);
+    return this.store.findRecord('flight', params.flight_id, { include: 'rocket,flight-motors' });
   },
   setupController(controller, model) {
     controller.setProperties({
