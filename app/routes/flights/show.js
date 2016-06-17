@@ -7,7 +7,6 @@ export default Ember.Route.extend(FlightRoutes, {
   },
   setupController(controller, model) {
     controller.setProperties({
-      rockets: this.store.findAll('rocket'),
       model: model,
       motors: this.store.findAll('motor')
     });

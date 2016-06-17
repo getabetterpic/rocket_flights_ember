@@ -20,9 +20,13 @@
       </p>
     </div>
     <div class="input-field col s12 m4">
-      {{rocket-select rockets=rockets
-                      selectedRocket=selectedRocket
-                      onchange=(action (mut selectedRocket))}}
+      {{#if rockets}}
+        {{rocket-select rockets=rockets
+                        selectedRocket=selectedRocket
+                        onchange=(action (mut selectedRocket))}}
+      {{else}}
+        {{input value=model.rocket.name disabled='disabled'}}
+      {{/if}}
       <label class="active">Rocket</label>
     </div>
     <div class="input-field col s12 m4">
