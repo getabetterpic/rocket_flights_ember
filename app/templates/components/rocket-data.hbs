@@ -1,13 +1,13 @@
 <div class="row">
   <form class="col s12">
     <div class="row">
-      <div class="input-field col s12">
-        {{input value=model.name}}
-        <label for="">Name</label>
-      </div>
-      <div class="input-field col s12">
+      <div class="input-field col s12 m6">
         {{input value=model.manufacturer}}
         <label for="">Manufacturer</label>
+      </div>
+      <div class="input-field col s12 m6">
+        {{input value=model.name}}
+        <label for="">Name</label>
       </div>
     </div>
     {{#if model.hasDirtyAttributes}}
@@ -18,3 +18,22 @@
     <button type="button" name="button" class="btn btn-flat" {{action (route-action 'cancelRocket')}}>Cancel</button>
   </form>
 </div>
+{{#if model.isNew}}
+{{else}}
+  <label>Flights</label>
+  <ul class="collection">
+    {{#each model.flights as |flight|}}
+      <li class="collection-item">
+        {{#link-to 'flights.show' flight}}
+          {{format-date flight.flightDate format='LL'}}
+        {{/link-to}}
+        <div class="secondary-content">
+          <a {{action 'removeFlightFromRocket' flight}}>Remove</a>
+        </div>
+      </li>
+    {{/each}}
+      {{#link-to 'flights.new' (query-params rocket_id=model.id) class="collection-item" tagName="li"}}
+        <a>New Flight</a>
+      {{/link-to}}
+  </ul>
+{{/if}}

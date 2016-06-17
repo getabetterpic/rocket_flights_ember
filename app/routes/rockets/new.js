@@ -22,6 +22,15 @@ export default Ember.Route.extend({
         this.controller.get('model').destroyRecord();
       }
       return true;
+    },
+    removeFlightFromRocket(flight) {
+      flight.destroyRecord().then(() => {
+        Materialize.toast('Flight successfully removed', 1500);
+      }).catch((errors) => {
+        errors.errors.forEach((error) => {
+          Materialize.toast(error.details, 3000);
+        });
+      });
     }
   }
 });
