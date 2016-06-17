@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.store.find('rocket', params.rocket_id);
+    return this.store.findRecord('rocket', params.rocket_id, { include: 'flights' });
   },
   actions: {
     saveRocket(model) {
