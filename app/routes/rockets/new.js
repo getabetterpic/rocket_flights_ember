@@ -10,7 +10,7 @@ export default Ember.Route.extend({
         this.transitionTo('rockets.show', model);
       }).catch((errors) => {
         errors.errors.forEach((error) => {
-          Materialize.toast(error.details.capitalize(), 3000);
+          Materialize.toast(error.detail.capitalize(), 3000);
         });
       });
     },
