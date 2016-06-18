@@ -41,7 +41,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.HOST = 'http://rocket-flights-api.getabetterpic.com';
+    ENV.HOST = 'https://rocket-flights-api.getabetterpic.com';
   }
 
   return ENV;
