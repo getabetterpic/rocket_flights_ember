@@ -5,6 +5,11 @@
       {{#link-to 'flights' tagName="li"}}<a>Flights</a>{{/link-to}}
       {{#link-to 'motors' tagName="li"}}<a>Motors</a>{{/link-to}}
       {{#link-to 'rockets' tagName="li"}}<a>Rockets</a>{{/link-to}}
+      {{#if session.isAuthenticated}}
+        <li><a href="#" {{action 'logout'}}>Logout</a></li>
+      {{else}}
+        <li><a href="#" {{action 'login'}}>Login</a></li>
+      {{/if}}
     </ul>
   </div>
 </nav>
