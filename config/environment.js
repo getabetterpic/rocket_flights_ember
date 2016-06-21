@@ -16,6 +16,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    'ember-simple-auth': {
+      authenticationRoute: '',
+      routeAfterAuthentication: 'flights',
+      routeIfAlreadyAuthenticated: 'flights'
     }
   };
 
@@ -26,6 +32,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.HOST = 'http://localhost:3000';
+    ENV['auth0-ember-simple-auth'] = {
+      clientID: "Z2j7Ipj6GnOmD1wjGLNxW8ba3MoXhm28",
+      domain: "getabetterpic.auth0.com"
+    };
   }
 
   if (environment === 'test') {
