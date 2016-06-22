@@ -22,7 +22,7 @@ export default Ember.Mixin.create({
       if (flightMotor.get('motor.isEmpty') === undefined) {
         flightMotor.destroyRecord();
       } else {
-        flightMotor.save().then((motor) => {
+        flightMotor.save().then(() => {
           Materialize.toast('Motor attached to flight', 1500);
           this.controller.set('newFlightMotor', undefined);
         }).catch((errors) => {
