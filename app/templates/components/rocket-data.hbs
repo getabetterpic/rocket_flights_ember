@@ -20,20 +20,22 @@
 </div>
 {{#if model.isNew}}
 {{else}}
-  <label>Flights</label>
-  <ul class="collection">
-    {{#each model.flights as |flight|}}
-      <li class="collection-item">
-        {{#link-to 'flights.show' flight}}
-          {{format-date flight.flightDate format='LL'}}
+  <div class="row">
+    <label>Flights</label>
+    <ul class="collection">
+      {{#each model.flights as |flight|}}
+        <li class="collection-item">
+          {{#link-to 'flights.show' flight}}
+            {{format-date flight.flightDate format='LL'}}
+          {{/link-to}}
+          <div class="secondary-content">
+            <a {{action 'removeFlightFromRocket' flight}}>Remove</a>
+          </div>
+        </li>
+      {{/each}}
+        {{#link-to 'flights.new' (query-params rocket_id=model.id) class="collection-item" tagName="li"}}
+          <a>New Flight</a>
         {{/link-to}}
-        <div class="secondary-content">
-          <a {{action 'removeFlightFromRocket' flight}}>Remove</a>
-        </div>
-      </li>
-    {{/each}}
-      {{#link-to 'flights.new' (query-params rocket_id=model.id) class="collection-item" tagName="li"}}
-        <a>New Flight</a>
-      {{/link-to}}
-  </ul>
+    </ul>
+  </div>
 {{/if}}
