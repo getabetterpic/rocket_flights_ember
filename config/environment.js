@@ -55,6 +55,10 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.HOST = 'https://rocket-flights-api.getabetterpic.com';
+    ENV['auth0-ember-simple-auth'] = {
+      clientID: "Z2j7Ipj6GnOmD1wjGLNxW8ba3MoXhm28",
+      domain: "getabetterpic.auth0.com"
+    };
   }
 
   return ENV;
