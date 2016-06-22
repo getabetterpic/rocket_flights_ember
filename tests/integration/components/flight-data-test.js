@@ -9,16 +9,16 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
+
   this.render(hbs`{{flight-data}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$('#flight-data'));
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#flight-data}}
-      template block text
-    {{/flight-data}}
-  `);
+test('it sends openMotorModal action when the open-motor-modal link is clicked', function(assert) {
+  this.set('openMotorModal', function() { assert.ok('openMotorModal called'); });
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{flight-data openMotorModal=openMotorModal}}`);
+
+  this.$('#open-motor-modal').click();
 });
