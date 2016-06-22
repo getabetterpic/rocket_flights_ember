@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{rocket-select}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#rocket-select}}
-      template block text
-    {{/rocket-select}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('#rocket-select').length, 1);
 });
