@@ -6,19 +6,7 @@ moduleForComponent('radio-button', 'Integration | Component | radio button', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.render(hbs`{{radio-button id="radio-button-test"}}`);
 
-  this.render(hbs`{{radio-button}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#radio-button}}
-      template block text
-    {{/radio-button}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.$('#radio-button-test'));
 });
