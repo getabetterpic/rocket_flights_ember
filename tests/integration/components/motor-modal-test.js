@@ -11,14 +11,21 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{motor-modal}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$('#motor-modal').length, 1);
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#motor-modal}}
-      template block text
-    {{/motor-modal}}
-  `);
+test('it sends saveMotor action when save button is clicked', function(assert) {
+  this.set('saveMotor', function() { assert.ok('saveMotor called'); });
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{motor-modal saveMotor=saveMotor}}`);
+
+  this.$('#save').click();
+});
+
+test('it sends cancelMotor action when cancel button is clicked', function(assert) {
+  this.set('cancelMotor', function() { assert.ok('cancelMotor called'); });
+
+  this.render(hbs`{{motor-modal cancelMotor=cancelMotor}}`);
+
+  this.$('#cancel').click();
 });

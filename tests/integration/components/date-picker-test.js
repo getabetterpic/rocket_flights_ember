@@ -12,5 +12,5 @@ test('it renders', function(assert) {
   const date = new Date('2016', '06', '11');
   this.set('date', date);
   this.render(hbs`{{date-picker}}`);
-  assert.ok(this.$('input'));
+  assert.equal(this.$('input').length, 1);
 });

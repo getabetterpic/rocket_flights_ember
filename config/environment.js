@@ -36,6 +36,9 @@ module.exports = function(environment) {
       clientID: "Z2j7Ipj6GnOmD1wjGLNxW8ba3MoXhm28",
       domain: "getabetterpic.auth0.com"
     };
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
   }
 
   if (environment === 'test') {

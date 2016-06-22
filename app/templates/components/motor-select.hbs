@@ -1,4 +1,4 @@
-<select onchange={{action 'motorDidChange' value='target.value'}}>
+<select onchange={{action 'motorDidChange' value='target.value'}} id="motor-select">
   <option value="" selected disabled>Select a motor</option>
   {{#each motors as |motor|}}
     <option value={{motor.id}}

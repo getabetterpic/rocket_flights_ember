@@ -1,4 +1,4 @@
-<select onchange={{action 'rocketDidChange' value='target.value'}}>
+<select onchange={{action 'rocketDidChange' value='target.value'}} id="rocket-select">
   {{#each rockets as |rocket|}}
     <option value={{rocket.id}}
             selected={{eq rocket.id selectedRocket.id}}>
