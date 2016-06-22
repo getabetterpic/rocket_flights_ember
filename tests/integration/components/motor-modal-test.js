@@ -11,7 +11,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{motor-modal}}`);
 
-  assert.ok(this.$('#motor-modal'));
+  assert.equal(this.$('#motor-modal').length, 1);
 });
 
 test('it sends saveMotor action when save button is clicked', function(assert) {

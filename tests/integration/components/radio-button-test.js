@@ -8,7 +8,7 @@ moduleForComponent('radio-button', 'Integration | Component | radio button', {
 test('it renders', function(assert) {
   this.render(hbs`{{radio-button id="radio-button-test"}}`);
 
-  assert.ok(this.$('#radio-button-test'));
+  assert.equal(this.$('#radio-button-test').length, 1);
 });
 
 test('a group updates the groupValue when changed', function(assert) {

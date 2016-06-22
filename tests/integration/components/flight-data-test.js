@@ -12,7 +12,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{flight-data}}`);
 
-  assert.ok(this.$('#flight-data'));
+  assert.equal(this.$('#flight-data').length, 1);
 });
 
 test('it sends openMotorModal action when the open-motor-modal link is clicked', function(assert) {

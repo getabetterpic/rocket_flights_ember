@@ -11,5 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{nav-bar}}`);
 
-  assert.ok(this.$('#nav-bar'));
+  assert.equal(this.$('#nav-bar').length, 1);
 });

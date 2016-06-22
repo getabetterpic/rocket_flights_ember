@@ -11,5 +11,5 @@ test('it saves a motor', function(assert) {
 
   this.render(hbs`{{motor-data}}`);
 
-  assert.ok(this.$('form'));
+  assert.equal(this.$('form').length, 1);
 });

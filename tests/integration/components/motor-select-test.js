@@ -12,7 +12,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{motor-select}}`);
 
-  assert.ok(this.$('#motor-select'));
+  assert.equal(this.$('#motor-select').length, 1);
 });
 
 test('it prompts the user to select a motor', function(assert) {
