@@ -1,21 +1,27 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  session: Ember.inject.service(),
+
   model() {
     return this.store.createRecord('rocket');
   },
   actions: {
     saveRocket(model) {
       model.save().then((model) => {
+        this.get('session.currentUser').then((user) => {
+          this.store.createRecord('userRocket', {
+            user: user,
+            rocket: model
+          }).save();
+        });
         this.transitionTo('rockets.show', model);
       }).catch((errors) => {
         errors.errors.forEach((error) => {
           Materialize.toast(error.detail.capitalize(), 3000);
         });
       });
-    },
-    cancelRocket() {
-      this.transitionTo('rockets.index');
     },
     willTransition() {
       if(this.controller.get('model.isNew')) {
