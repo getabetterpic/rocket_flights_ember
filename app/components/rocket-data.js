@@ -10,6 +10,9 @@ export default Ember.Component.extend({
   actions: {
     removeFlightFromRocket(flight) {
       this.removeFlightFromRocket(flight);
+    },
+    cancelRocket() {
+      history.back(-1);
     }
   }
 });

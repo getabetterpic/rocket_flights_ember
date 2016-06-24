@@ -14,9 +14,6 @@ export default Ember.Route.extend({
         });
       });
     },
-    cancelRocket() {
-      this.transitionTo('rockets.index');
-    },
     willTransition() {
       if(this.controller.get('model.isNew')) {
         this.controller.get('model').destroyRecord();
