@@ -1,11 +1,6 @@
 <div class="col s12">
   <ul class="tabs">
-    {{#if session.isAuthenticated}}
-      <li class="tab col s6">{{#link-to 'flights.index'}}All Flights{{/link-to}}</li>
-      <li class="tab col s6">{{#link-to 'flights.my-flights'}}My Flights{{/link-to}}</li>
-    {{else}}
-      <li class="tab col s12">{{#link-to 'flights.index'}}All Flights{{/link-to}}</li>
-    {{/if}}
+    <li class="tab col s6">{{#link-to 'flights.index'}}All Flights{{/link-to}}</li>
+    <li class="tab col s6">{{#link-to 'flights.my-flights'}}My Flights{{/link-to}}</li>
   </ul>
 </div>
-{{yield}}
