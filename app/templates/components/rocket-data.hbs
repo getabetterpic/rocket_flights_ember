@@ -16,6 +16,11 @@
       <button type="button" name="button" class="btn disabled">Save</button>
     {{/if}}
     <button type="button" name="button" class="btn btn-flat" {{action 'cancelRocket'}}>Cancel</button>
+    {{#unless model.isNew}}
+      <button type="button" name="add-to-collection" class="btn right" {{action (route-action 'addRocketToCollection' model)}}>
+        Add to My Collection
+      </button>
+    {{/unless}}
   </form>
 </div>
 {{#if model.isNew}}
