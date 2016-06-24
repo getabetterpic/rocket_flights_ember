@@ -1,10 +1,21 @@
-<nav>
-  <div class="nav-wrapper">
-    {{#link-to 'application' class="brand-logo"}}Rocket Flights{{/link-to}}
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      {{#link-to 'flights' tagName="li"}}<a>Flights</a>{{/link-to}}
-      {{#link-to 'motors' tagName="li"}}<a>Motors</a>{{/link-to}}
-      {{#link-to 'rockets' tagName="li"}}<a>Rockets</a>{{/link-to}}
-    </ul>
-  </div>
-</nav>
+<div class="nav-wrapper">
+  {{#link-to 'application' class="brand-logo"}}Rocket Flights{{/link-to}}
+  <ul class="right">
+    {{#if session.isAuthenticated}}
+      <li><a href="#" {{action 'logout'}}>Logout</a></li>
+    {{else}}
+      <li><a href="#" {{action 'login'}}>Login</a></li>
+    {{/if}}
+  </ul>
+  <ul class="right hide-on-med-and-down">
+    {{#link-to 'flights' tagName="li"}}<a>Flights</a>{{/link-to}}
+    {{#link-to 'motors' tagName="li"}}<a>Motors</a>{{/link-to}}
+    {{#link-to 'rockets' tagName="li"}}<a>Rockets</a>{{/link-to}}
+  </ul>
+  <ul id="slide-out" class="side-nav">
+    {{#link-to 'flights' tagName="li"}}<a>Flights</a>{{/link-to}}
+    {{#link-to 'motors' tagName="li"}}<a>Motors</a>{{/link-to}}
+    {{#link-to 'rockets' tagName="li"}}<a>Rockets</a>{{/link-to}}
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+</div>

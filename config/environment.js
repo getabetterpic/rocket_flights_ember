@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'rocket-flights-ember',
     environment: environment,
     baseURL: '/',
-    locationType: 'hash',
+    locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -16,6 +16,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    'ember-simple-auth': {
+      authenticationRoute: '',
+      routeAfterAuthentication: 'flights',
+      routeIfAlreadyAuthenticated: 'flights'
     }
   };
 
@@ -26,6 +32,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.HOST = 'http://localhost:3000';
+    ENV['auth0-ember-simple-auth'] = {
+      clientID: "Z2j7Ipj6GnOmD1wjGLNxW8ba3MoXhm28",
+      domain: "getabetterpic.auth0.com"
+    };
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
   }
 
   if (environment === 'test') {
@@ -41,7 +54,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.HOST = 'http://rocket-flights-api.getabetterpic.com';
+    ENV.HOST = 'https://rocket-flights-api.getabetterpic.com';
+    ENV['auth0-ember-simple-auth'] = {
+      clientID: "NfuejbLUTVy2fhPIyztEMBaMWvgKO3Ki",
+      domain: "getabetterpic.auth0.com"
+    };
   }
 
   return ENV;

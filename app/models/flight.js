@@ -8,5 +8,9 @@ export default Model.extend({
   flightDate: attr('date'),
   altitude: attr('number'),
   rocket: belongsTo('rocket'),
-  flightMotors: hasMany('flightMotor')
+  flightMotors: hasMany('flightMotor'),
+  userFlights: hasMany('userFlights'),
+  rocketName: Ember.computed('rocket.name', function() {
+    return `${this.get('rocket.manufacturer')} ${this.get('rocket.name')}`;
+  })
 });

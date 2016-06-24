@@ -1,12 +1,1 @@
-{{rocket-data model=model}}
-<label>Flights</label>
-<ul class="collection">
-  {{#each model.flights as |flight|}}
-    {{#link-to 'flights.show' flight class="collection-item" tagName="li"}}
-      <a>{{format-date flight.flightDate format='LL'}}</a>
-    {{/link-to}}
-  {{/each}}
-  {{#link-to 'flights.new' (query-params rocket_id=model.id) class="collection-item" tagName="li"}}
-    <a>New Flight</a>
-  {{/link-to}}
-</ul>
+{{rocket-data model=model removeFlightFromRocket=(route-action 'removeFlightFromRocket')}}

@@ -6,19 +6,6 @@ moduleForComponent('rocket-data', 'Integration | Component | rocket data', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{rocket-data}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#rocket-data}}
-      template block text
-    {{/rocket-data}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('#rocket-data-form').length, 1);
 });

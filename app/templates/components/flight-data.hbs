@@ -1,4 +1,4 @@
-<form>
+<form id="flight-data">
   <div class="row">
     <div class="input-field col s12 m2">
       <label class="active">Successful</label>
@@ -20,9 +20,13 @@
       </p>
     </div>
     <div class="input-field col s12 m4">
-      {{rocket-select rockets=rockets
-                      selectedRocket=selectedRocket
-                      onchange=(action (mut selectedRocket))}}
+      {{#if rockets}}
+        {{rocket-select rockets=rockets
+                        selectedRocket=selectedRocket
+                        onchange=(action (mut selectedRocket))}}
+      {{else}}
+        {{input value=model.rocket.name disabled='disabled'}}
+      {{/if}}
       <label class="active">Rocket</label>
     </div>
     <div class="input-field col s12 m4">
@@ -50,12 +54,12 @@
           </li>
         {{/each}}
       {{/if}}
-      <li class="collection-item" {{action 'openMotorModal'}}><a>Add Motor</a></li>
+      <li class="collection-item" id="open-motor-modal" {{action 'openMotorModal'}}><a>Add Motor</a></li>
     </ul>
   </div>
   <div class="row">
     <button type="button" name="button" class="btn" {{action (route-action 'saveFlight' model)}}>Save</button>
-    <button type="button" name="button" class="btn btn-flat" {{action (route-action 'cancelFlight')}}>Cancel</button>
+    <button type="button" name="button" class="btn btn-flat" {{action 'cancelFlight'}}>Cancel</button>
   </div>
 </form>
 {{motor-modal

@@ -13,10 +13,12 @@ Router.map(function() {
   this.route('rockets', function() {
     this.route('show', { path: '/:rocket_id' });
     this.route('new');
+    this.route('my-rockets');
   });
   this.route('flights', function() {
     this.route('show', { path: '/:flight_id' });
     this.route('new');
+    this.route('my-flights');
   });
 });
 

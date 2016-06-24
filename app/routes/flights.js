@@ -1,7 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    return this.store.findAll('flight');
+  session: Ember.inject.service(),
+
+  setupController(controller, model) {
+    controller.setProperties({
+      session: this.get('session'),
+      model: model
+    });
   }
 });
