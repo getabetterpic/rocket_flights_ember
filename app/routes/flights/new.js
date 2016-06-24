@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import FlightRoutes from '../../mixins/flight-routes';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend(FlightRoutes, {
+export default Ember.Route.extend(FlightRoutes, AuthenticatedRouteMixin, {
   session: Ember.inject.service(),
 
   model(params) {
