@@ -12,6 +12,9 @@ export default Ember.Component.extend({
     },
     removeMotor(flightMotor) {
       this.removeMotor(flightMotor);
+    },
+    cancelFlight() {
+      history.back(-1);
     }
   }
 });

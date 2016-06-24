@@ -2,6 +2,8 @@ import Ember from 'ember';
 import FlightRoutes from '../../mixins/flight-routes';
 
 export default Ember.Route.extend(FlightRoutes, {
+  session: Ember.inject.service(),
+
   model(params) {
     const dt = new Date();
     if (params.rocket_id) {
@@ -21,6 +23,12 @@ export default Ember.Route.extend(FlightRoutes, {
   actions: {
     saveFlight(model) {
       model.save().then((model) => {
+        this.get('session.currentUser').then((user) => {
+          this.store.createRecord('userFlight', {
+            user: user,
+            flight: model
+          }).save();
+        });
         this.transitionTo('flights.show', model);
       }).catch((error) => {
         Materialize.toast("There was a problem saving flight", 1500);

@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('flights', function() {
     this.route('show', { path: '/:flight_id' });
     this.route('new');
+    this.route('my-flights');
   });
 });
 

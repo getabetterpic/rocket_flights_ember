@@ -14,9 +14,6 @@ export default Ember.Mixin.create({
   },
 
   actions: {
-    cancelFlight() {
-      this.transitionTo('flights.index');
-    },
     saveMotor() {
       let flightMotor = this.controller.get('newFlightMotor');
       if (flightMotor.get('motor.isEmpty') === undefined) {
