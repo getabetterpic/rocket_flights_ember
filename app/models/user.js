@@ -4,5 +4,6 @@ import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   email: attr('string'),
-  userFlights: hasMany('userFlight')
+  userFlights: hasMany('userFlight'),
+  userRockets: hasMany('userRocket')
 });
