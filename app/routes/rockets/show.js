@@ -6,6 +6,22 @@ export default Ember.Route.extend({
   model(params) {
     return this.store.findRecord('rocket', params.rocket_id, { include: 'flights' });
   },
+  setupController(controller, model) {
+    this._super(controller, model);
+    this.get('session.currentUser').then((user) => {
+      const userId = user.get('id');
+      let userRockets = this.store.query('userRocket', { filter: { user_id: userId }, include: 'rocket' });
+      controller.set('userRockets', userRockets);
+      userRockets.then((userRockets) => {
+        if (userRockets.isAny('rocket.id', model.get('id'))) {
+          controller.set('isInCollection', true);
+        } else {
+          controller.set('isInCollection', false);
+        }
+      });
+    });
+  },
+
   actions: {
     saveRocket(model) {
       model.save().then(() => {
@@ -29,6 +45,19 @@ export default Ember.Route.extend({
         }).save().then(() => {
           Materialize.toast('Rocket successfully added to collection', 1500);
           this.transitionTo('rockets.my-rockets');
+        });
+      });
+    },
+    removeRocketFromCollection(rocket) {
+      this.get('session.currentUser').then((user) => {
+        this.controller.get('userRockets').forEach((ur) => {
+          console.log(ur.get('rocket.id'));
+          console.log(ur.get('user.id'));
+          if (ur.get('rocket.id') === rocket.get('id')) {
+            ur.destroyRecord().then(() => {
+              this.transitionTo('rockets.my-rockets');
+            });
+          }
         });
       });
     }
