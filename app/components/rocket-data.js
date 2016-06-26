@@ -13,6 +13,9 @@ export default Ember.Component.extend({
     },
     cancelRocket() {
       history.back(-1);
+    },
+    openUploadModal() {
+      Ember.$('#upload-modal').openModal();
     }
   }
 });

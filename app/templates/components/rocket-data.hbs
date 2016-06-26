@@ -32,6 +32,17 @@
 {{#if model.isNew}}
 {{else}}
   <div class="row">
+    <div class="col s12 m4">
+      <button type="button"
+              name="upload-image"
+              id="open-upload-modal"
+              class="btn"
+              {{action 'openUploadModal'}}>
+        Upload Picture
+      </button>
+    </div>
+  </div>
+  <div class="row">
     <label>Flights</label>
     <ul class="collection">
       {{#each model.flights as |flight|}}
@@ -50,3 +61,4 @@
     </ul>
   </div>
 {{/if}}
+{{upload-modal rocket=model}}
