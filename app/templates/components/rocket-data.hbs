@@ -1,3 +1,30 @@
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a class="btn-floating btn-large">
+    <i class="large material-icons">menu</i>
+  </a>
+  <ul>
+    {{#if session.isAuthenticated}}
+      {{#unless model.isNew}}
+        <li>
+          <a id="open-upload-modal" class="btn-floating" {{action 'openUploadModal'}}>
+            <i class="material-icons">insert_photo</i>
+          </a>
+        </li>
+        {{#if isInCollection}}
+          <li>
+            <a class="btn-floating" {{action (route-action 'removeRocketFromCollection' model)}}>
+              <i class="material-icons">remove</i>
+            </a>
+          </li>
+        {{else}}
+          <a class="btn-floating" {{action (route-action 'addRocketToCollection' model)}}>
+            <i class="material-icons">add</i>
+          </a>
+        {{/if}}
+      {{/unless}}
+    {{/if}}
+  </ul>
+</div>
 <div class="row">
   <form class="col s12">
     <div class="row">
@@ -10,38 +37,17 @@
         <label for="">Name</label>
       </div>
     </div>
-    {{#if model.hasDirtyAttributes}}
-      <button type="button" name="button" class="btn" {{action (route-action 'saveRocket' model)}}>Save</button>
-    {{else}}
-      <button type="button" name="button" class="btn disabled">Save</button>
-    {{/if}}
-    <button type="button" name="button" class="btn btn-flat" {{action 'cancelRocket'}}>Cancel</button>
-    {{#unless model.isNew}}
-      {{#if isInCollection}}
-        <button type="button" name="remove-from-collection" class="btn right" {{action (route-action 'removeRocketFromCollection' model)}}>
-          Remove from My Collection
-        </button>
+    <div class="row">
+      {{#if model.hasDirtyAttributes}}
+        <button type="button" name="button" class="btn col s6 m2" {{action (route-action 'saveRocket' model)}}>Save</button>
       {{else}}
-        <button type="button" name="add-to-collection" class="btn right" {{action (route-action 'addRocketToCollection' model)}}>
-          Add to My Collection
-        </button>
+        <button type="button" name="button" class="btn disabled col s6 m2">Save</button>
       {{/if}}
-    {{/unless}}
+      <button type="button" name="button" class="btn btn-flat col s6 m2" {{action 'cancelRocket'}}>Cancel</button>
+    </div>
   </form>
 </div>
-{{#if model.isNew}}
-{{else}}
-  <div class="row">
-    <div class="col s12 m4">
-      <button type="button"
-              name="upload-image"
-              id="open-upload-modal"
-              class="btn"
-              {{action 'openUploadModal'}}>
-        Upload Picture
-      </button>
-    </div>
-  </div>
+{{#unless model.isNew}}
   <div class="row">
     <label>Flights</label>
     <ul class="collection">
@@ -60,5 +66,12 @@
         {{/link-to}}
     </ul>
   </div>
-{{/if}}
+  <div class="row">
+    {{#each model.images as |image|}}
+      <div class="col s12 m4">
+        <img class="responsive-img" src={{image.imageUrl}}>
+      </div>
+    {{/each}}
+  </div>
+{{/unless}}
 {{upload-modal rocket=model}}
