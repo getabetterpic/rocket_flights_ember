@@ -6,5 +6,6 @@ export default Model.extend({
   name: attr('string'),
   manufacturer: attr('string'),
   flights: hasMany('flight'),
-  userRockets: hasMany('userRocket')
+  userRockets: hasMany('userRocket'),
+  images: hasMany('image')
 });

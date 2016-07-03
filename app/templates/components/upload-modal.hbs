@@ -1,0 +1,16 @@
+<div id="upload-modal" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        {{file-upload url='/images' rocket=rocket addImageToStore=(route-action 'addImageToStore')}}
+      </div>
+      <div class="file-path-wrapper">
+        <input type="text" class="file-path validate">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-action modal-close btn-flat" onclick={{action 'closeModal'}} id="cancel">Close</a>
+  </div>
+</div>

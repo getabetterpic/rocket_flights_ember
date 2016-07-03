@@ -4,22 +4,25 @@ export default Ember.Route.extend({
   session: Ember.inject.service(),
 
   model(params) {
-    return this.store.findRecord('rocket', params.rocket_id, { include: 'flights' });
+    return this.store.findRecord('rocket', params.rocket_id, { include: 'flights,images' });
   },
   setupController(controller, model) {
     this._super(controller, model);
-    this.get('session.currentUser').then((user) => {
-      const userId = user.get('id');
-      let userRockets = this.store.query('userRocket', { filter: { user_id: userId }, include: 'rocket' });
-      controller.set('userRockets', userRockets);
-      userRockets.then((userRockets) => {
-        if (userRockets.isAny('rocket.id', model.get('id'))) {
-          controller.set('isInCollection', true);
-        } else {
-          controller.set('isInCollection', false);
-        }
+    controller.set('session', this.get('session'));
+    if (this.get('session.isAuthenticated')) {
+      this.get('session.currentUser').then((user) => {
+        const userId = user.get('id');
+        let userRockets = this.store.query('userRocket', { filter: { user_id: userId }, include: 'rocket' });
+        controller.set('userRockets', userRockets);
+        userRockets.then((userRockets) => {
+          if (userRockets.isAny('rocket.id', model.get('id'))) {
+            controller.set('isInCollection', true);
+          } else {
+            controller.set('isInCollection', false);
+          }
+        });
       });
-    });
+    }
   },
 
   actions: {
@@ -60,6 +63,10 @@ export default Ember.Route.extend({
           }
         });
       });
+    },
+    addImageToStore(image) {
+      this.store.pushPayload('image', image);
+      this.controller.get('model').reload();
     }
   }
 });

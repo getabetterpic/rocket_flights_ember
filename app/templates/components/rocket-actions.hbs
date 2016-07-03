@@ -1,0 +1,28 @@
+{{upload-modal rocket=model}}
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <a class="btn-floating btn-large">
+    <i class="large material-icons">menu</i>
+  </a>
+  <ul>
+    {{#if session.isAuthenticated}}
+      {{#unless model.isNew}}
+        <li>
+          <a id="open-upload-modal" class="btn-floating" {{action 'openUploadModal'}}>
+            <i class="material-icons">insert_photo</i>
+          </a>
+        </li>
+        {{#if isInCollection}}
+          <li>
+            <a class="btn-floating" {{action (route-action 'removeRocketFromCollection' model)}}>
+              <i class="material-icons">remove</i>
+            </a>
+          </li>
+        {{else}}
+          <a class="btn-floating" {{action (route-action 'addRocketToCollection' model)}}>
+            <i class="material-icons">add</i>
+          </a>
+        {{/if}}
+      {{/unless}}
+    {{/if}}
+  </ul>
+</div>
