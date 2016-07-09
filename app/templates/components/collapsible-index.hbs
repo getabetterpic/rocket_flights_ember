@@ -1,0 +1,36 @@
+<li>
+  <div class="collapsible-header">Flights</div>
+  <div class="collapsible-body">
+    <ul class="collection">
+      {{#each flights as |flight|}}
+        {{#link-to 'flights.show' flight tagName="li" class="collection-item"}}
+          <a>{{flight.rocketName}}</a>
+        {{/link-to}}
+      {{/each}}
+    </ul>
+  </div>
+</li>
+<li>
+  <div class="collapsible-header">Motors</div>
+  <div class="collapsible-body">
+    <ul class="collection">
+      {{#each motors as |motor|}}
+        {{#link-to 'motors.show' motor tagName="li" class="collection-item"}}
+          <a>{{motor.manufacturer}} {{motor.name}}</a>
+        {{/link-to}}
+      {{/each}}
+    </ul>
+  </div>
+</li>
+<li>
+  <div class="collapsible-header">Rockets</div>
+  <div class="collapsible-body">
+    <ul class="collection">
+      {{#each rockets as |rocket|}}
+        {{#link-to 'rockets.show' rocket tagName="li" class="collection-item"}}
+          <a>{{rocket.manufacturer}} {{rocket.name}}</a>
+        {{/link-to}}
+      {{/each}}
+    </ul>
+  </div>
+</li>
