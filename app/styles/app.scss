@@ -6,6 +6,12 @@ $secondary-color: color('deep-orange', 'lighten-1');
 @import 'components/variables';
 @import 'materialize';
 
+@import url(https://fonts.googleapis.com/css?family=Space+Mono:400,400italic,700,700italic);
+
+html {
+  font-family: 'Space Mono';
+}
+
 a {
   cursor: pointer;
 }
